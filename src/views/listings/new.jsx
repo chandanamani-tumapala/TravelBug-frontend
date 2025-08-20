@@ -38,7 +38,7 @@ export default function New() {
             data.append('price', formData.price);
             data.append('country', formData.country);
             data.append('location', formData.location);
-            const response = await axios.post('https://travelbug-backend.onrender.com/listings', data, {headers: {'Authorization': `Bearer ${token}`}});
+            const response = await axios.post('http://localhost:8080/listings', data, {headers: {'Authorization': `Bearer ${token}`}});
             console.log('listing created:', response.data);
             navigate('/index', { state: { message: 'Listing created successfully!'} });
         }

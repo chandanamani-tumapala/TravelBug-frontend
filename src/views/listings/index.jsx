@@ -15,7 +15,7 @@ export default function Index() {
         // Fetch listings
         const fetchListing = async () => {
             try {
-                const response = await axios.get(`https://travelbug-backend.onrender.com/listings`);
+                const response = await axios.get(`http://localhost:8080/listings`);
                 setAllListings(response.data);
             } catch (error) {
                 console.error('Error fetching listings:', error);

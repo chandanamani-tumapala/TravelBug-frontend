@@ -32,7 +32,7 @@ export default function Signup() {
         setValidate(true);
         try {
             console.log("formdata is", formData.username, formData.email, formData.password);
-            const response = await axios.post("https://travelbug-backend.onrender.com/user/signup",{
+            const response = await axios.post("http://localhost:8080/user/signup",{
                 username: formData.username,
                 email: formData.email,
                 password: formData.password

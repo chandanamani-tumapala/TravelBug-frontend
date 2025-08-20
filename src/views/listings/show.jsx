@@ -33,7 +33,7 @@ export default function Show() {
         
         const fetchListing = async () =>{
             try {
-                const response= await axios.get(`https://travelbug-backend.onrender.com/listings/${id}`);
+                const response= await axios.get(`http://localhost:8080/listings/${id}`);
                 setListing(response.data);
             }
             catch(err) {
@@ -56,7 +56,7 @@ export default function Show() {
         else {
         try {
             console.log('review is :');
-            const response = await axios.post(`https://travelbug-backend.onrender.com/listings/${id}/reviews`, reviewdata,{headers: {'Authorization': `Bearer ${token}`}})
+            const response = await axios.post(`http://localhost:8080/listings/${id}/reviews`, reviewdata,{headers: {'Authorization': `Bearer ${token}`}})
             console.log("Review submitted", response);
             setReviewData({ rating: '', comment: '' });
             setValidated(false);
@@ -75,7 +75,7 @@ export default function Show() {
         event.preventDefault();
         try {
             console.log(`id is: ${id}`);
-            const response = await axios.delete(`https://travelbug-backend.onrender.com/listings/delete/${id}`,{headers: {'Authorization': `Bearer ${token}`}})
+            const response = await axios.delete(`http://localhost:8080/listings/delete/${id}`,{headers: {'Authorization': `Bearer ${token}`}})
             navigate('/index',{ state: { message: 'Listing deleted successfully!' } });
             console.log("route is deleted", response.data);
         }
@@ -89,7 +89,7 @@ export default function Show() {
     }
     const deletereview=async ( reviewid) => {
         try {
-            const response= await axios.delete(`https://travelbug-backend.onrender.com/listings/${id}/reviews/${reviewid}`,{headers: {'Authorization': `Bearer ${token}`}})
+            const response= await axios.delete(`http://localhost:8080/listings/${id}/reviews/${reviewid}`,{headers: {'Authorization': `Bearer ${token}`}})
             console.log('deleted review', response);
             // setListing(prevListing => ({
             //     ...prevListing, reviews: prevListing.reviews.filter(review=> review._id!==reviewid)

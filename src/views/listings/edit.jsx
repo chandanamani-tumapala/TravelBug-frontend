@@ -12,7 +12,7 @@ export default function Edit() {
     useEffect(()=> {
         const fetchListing= async() => {
             try {
-                const response = await axios.get(`${API_URL}/listings/${id}`);
+                const response = await axios.get(`http://localhost:8080/listings/${id}`);
                 setFormDate(response.data);
             }
             catch(err) {
@@ -33,7 +33,7 @@ export default function Edit() {
             data.append('price', formData.price);
             data.append('country', formData.country);
             data.append('location', formData.location);
-            const response= await axios.put(`${API_URL}/listings/${id}`,data,{headers: {'Authorization': `Bearer ${token}`}});
+            const response= await axios.put(`http//localhost:8080/listings/${id}`,data,{headers: {'Authorization': `Bearer ${token}`}});
             console.log("From Submitted:", response.data);
             navigate('/index');
         }

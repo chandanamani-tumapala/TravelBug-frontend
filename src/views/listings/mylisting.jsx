@@ -15,7 +15,7 @@ export default function Mylisting() {
         // Fetch listings
         const fetchListing = async () => {
             try {
-                const response = await axios.get('https://travelbug-backend.onrender.com/listings/mylisting',{headers: {'Authorization': `Bearer ${token}`}});
+                const response = await axios.get('http://localhost:8080/listings/mylisting',{headers: {'Authorization': `Bearer ${token}`}});
                 setAllListings(response.data);
             } catch (error) {
                 console.error('Error fetching listings:', error);
